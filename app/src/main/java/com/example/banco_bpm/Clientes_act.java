@@ -30,7 +30,7 @@ public class Clientes_act extends AppCompatActivity {
         tSalario=(EditText)findViewById(R.id.editSalario);
     }
     public void Anadir(View v){
-        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this,"fichero",null,1);
+        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this,"bbdd",null,1);
         SQLiteDatabase db =admin.getWritableDatabase();
 
         String codigo=tCodigo.getText().toString();
@@ -56,7 +56,7 @@ public class Clientes_act extends AppCompatActivity {
         }
     }
     public void Motrar(View v){
-        AdminSQLiteOpenHelper admin= new AdminSQLiteOpenHelper(this,"fichero",null,1);
+        AdminSQLiteOpenHelper admin= new AdminSQLiteOpenHelper(this,"bbdd",null,1);
         SQLiteDatabase db=admin.getWritableDatabase();
 
         String codigo=tCodigo.getText().toString();
@@ -77,7 +77,7 @@ public class Clientes_act extends AppCompatActivity {
         }
     }
     public void Eliminar(View v){
-        AdminSQLiteOpenHelper admin= new AdminSQLiteOpenHelper(this,"fichero",null,1);
+        AdminSQLiteOpenHelper admin= new AdminSQLiteOpenHelper(this,"bbdd",null,1);
         SQLiteDatabase db=admin.getWritableDatabase();
 
         String codigo=tCodigo.getText().toString();
@@ -95,7 +95,7 @@ public class Clientes_act extends AppCompatActivity {
         }
     }
     public void Actualizar(View v){
-        AdminSQLiteOpenHelper admin=new AdminSQLiteOpenHelper(this,"fichero",null,1);
+        AdminSQLiteOpenHelper admin=new AdminSQLiteOpenHelper(this,"bbdd",null,1);
         SQLiteDatabase db= admin.getWritableDatabase();
 
         String codigo=tCodigo.getText().toString();

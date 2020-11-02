@@ -10,6 +10,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.text.NumberFormat;
+
 import clases.Cuentas;
 
 public class Prestamo_act extends AppCompatActivity {
@@ -27,7 +29,7 @@ public class Prestamo_act extends AppCompatActivity {
         spinCliente=(Spinner)findViewById(R.id.spin1);
         spinCredito=(Spinner)findViewById(R.id.spin2);
 
-        String[] clientes={"CLIENTES","AXEL","ROXANA"};
+        String[] clientes={"CLIENTES","AXEL","ROXANA","BETSABE","MATIAS"};
         ArrayAdapter<String> spin1=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,clientes);
         spinCliente.setAdapter(spin1);
 
@@ -44,29 +46,66 @@ public class Prestamo_act extends AppCompatActivity {
         String credi=spinCredito.getSelectedItem().toString();
         Cuentas cuen=new Cuentas();
 
-        if(clie.equals("AXEL")){
+        String cliente=clie.toLowerCase();
+        String credito=credi.toLowerCase();
+
+        if(cliente.equals("axel")){
             text.setText("Su saldo es: $"+cuen.getSalarioAxel());
-            switch (credi){
-                case "HIPOTECARIO":
+            switch (credito){
+                case "hipotecario":
                     int finalprestamo=cuen.getSalarioAxel()+cuen.getHipoteca();
-                    text.setText("Su saldo total es: $"+finalprestamo);
+                    NumberFormat formato=NumberFormat.getIntegerInstance();
+                    text.setText("Su saldo total es: $"+formato.format(finalprestamo));
                     break;
-                case "AUTOMOTRIZ":
+                case "automotriz":
                     int finalprestamo2=cuen.getSalarioAxel()+cuen.getAuto();
-                    text.setText("Su saldo total es: $"+finalprestamo2);
+                    NumberFormat formato2=NumberFormat.getIntegerInstance();
+                    text.setText("Su saldo total es: $"+formato2.format(finalprestamo2));
                     break;
             }
         }
-        else if(clie.equals("ROXANA")){
+        else if(cliente.equals("roxana")){
             text.setText("Su saldo es: $"+cuen.getSalarioAxel());
-            switch (credi){
-                case "HIPOTECARIO":
+            switch (credito){
+                case "hipotecario":
                     int finalprestamo=cuen.getSalarioRoxana()+cuen.getHipoteca();
-                    text.setText("Su saldo total es: $"+finalprestamo);
+                    NumberFormat formato=NumberFormat.getIntegerInstance();
+                    text.setText("Su saldo total es: $"+formato.format(finalprestamo));
                     break;
-                case "AUTOMOTRIZ":
+                case "automotriz":
                     int finalprestamo2=cuen.getSalarioRoxana()+cuen.getAuto();
-                    text.setText("Su saldo total es: $"+finalprestamo2);
+                    NumberFormat formato2=NumberFormat.getIntegerInstance();
+                    text.setText("Su saldo total es: $"+formato2.format(finalprestamo2));
+                    break;
+            }
+        }
+        else if(cliente.equals("betsabe")){
+            text.setText("Su saldo es: $"+cuen.getSalarioBetsabe());
+            switch (credito){
+                case "hipotecario":
+                    int finalprestamo=cuen.getSalarioBetsabe()+cuen.getHipoteca();
+                    NumberFormat formato=NumberFormat.getIntegerInstance();
+                    text.setText("Su saldo total es: $"+formato.format(finalprestamo));
+                    break;
+                case "automotriz":
+                    int finalprestamo2=cuen.getSalarioBetsabe()+cuen.getAuto();
+                    NumberFormat formato2=NumberFormat.getIntegerInstance();
+                    text.setText("Su saldo total es: $"+formato2.format(finalprestamo2));
+                    break;
+            }
+        }
+        else if(cliente.equals("matias")){
+            text.setText("Su saldo es: $"+cuen.getSalarioMatias());
+            switch (credito){
+                case "hipotecario":
+                    int finalprestamo=cuen.getSalarioMatias()+cuen.getHipoteca();
+                    NumberFormat formato=NumberFormat.getIntegerInstance();
+                    text.setText("Su saldo total es: $"+formato.format(finalprestamo));
+                    break;
+                case "automotriz":
+                    int finalprestamo2=cuen.getSalarioMatias()+cuen.getAuto();
+                    NumberFormat formato2=NumberFormat.getIntegerInstance();
+                    text.setText("Su saldo total es: $"+formato2.format(finalprestamo2));
                     break;
             }
         }
@@ -78,33 +117,74 @@ public class Prestamo_act extends AppCompatActivity {
         String clie=spinCliente.getSelectedItem().toString();
         String credi=spinCredito.getSelectedItem().toString();
         Cuentas cuen=new Cuentas();
-        if(clie.equals("AXEL")){
+
+        String cliente=clie.toLowerCase();
+        String credito=credi.toLowerCase();
+        if(cliente.equals("axel")){
             text.setText("Su saldo es: $"+cuen.getSalarioAxel());
-            switch (credi){
-                case "HIPOTECARIO":
+            switch (credito){
+                case "hipotecario":
                     int finalprestamo=cuen.getSalarioAxel()+cuen.getHipoteca();
                     int deuda=finalprestamo/12;
-                    text.setText("Su deuda total es: $"+deuda);
+                    NumberFormat formato=NumberFormat.getIntegerInstance();
+                    text.setText("Su deuda total es: $"+formato.format(deuda));
                     break;
-                case "AUTOMOTRIZ":
+                case "automotriz":
                     int finalprestamo2=cuen.getSalarioAxel()+cuen.getAuto();
                     int deuda2=finalprestamo2/8;
-                    text.setText("Su deuda total es: $"+deuda2);
+                    NumberFormat formato2=NumberFormat.getIntegerInstance();
+                    text.setText("Su deuda total es: $"+formato2.format(deuda2));
                     break;
             }
         }
-        else if(clie.equals("ROXANA")){
+        else if(cliente.equals("roxana")){
             text.setText("Su saldo es: $"+cuen.getSalarioRoxana());
-            switch (credi){
-                case "HIPOTECARIO":
+            switch (credito){
+                case "hipotecario":
                     int finalprestamo=cuen.getSalarioRoxana()+cuen.getHipoteca();
                     int deuda=finalprestamo/12;
-                    text.setText("Su deuda total es: $"+deuda);
+                    NumberFormat formato=NumberFormat.getIntegerInstance();
+                    text.setText("Su deuda total es: $"+formato.format(deuda));
                     break;
-                case "AUTOMOTRIZ":
+                case "automotriz":
                     int finalprestamo2=cuen.getSalarioRoxana()+cuen.getAuto();
                     int deuda2=finalprestamo2/8;
-                    text.setText("Su deuda total es: $"+deuda2);
+                    NumberFormat formato2=NumberFormat.getIntegerInstance();
+                    text.setText("Su deuda total es: $"+formato2.format(deuda2));
+                    break;
+            }
+        }
+        else if(cliente.equals("betsabe")){
+            text.setText("Su saldo es: $"+cuen.getSalarioBetsabe());
+            switch (credito){
+                case "hipotecario":
+                    int finalprestamo=cuen.getSalarioBetsabe()+cuen.getHipoteca();
+                    int deuda=finalprestamo/12;
+                    NumberFormat formato=NumberFormat.getIntegerInstance();
+                    text.setText("Su deuda total es: $"+formato.format(deuda));
+                    break;
+                case "automotriz":
+                    int finalprestamo2=cuen.getSalarioBetsabe()+cuen.getAuto();
+                    int deuda2=finalprestamo2/8;
+                    NumberFormat formato2=NumberFormat.getIntegerInstance();
+                    text.setText("Su deuda total es: $"+formato2.format(deuda2));
+                    break;
+            }
+        }
+        else if(cliente.equals("matias")){
+            text.setText("Su saldo es: $"+cuen.getSalarioMatias());
+            switch (credito){
+                case "hipotecario":
+                    int finalprestamo=cuen.getSalarioMatias()+cuen.getHipoteca();
+                    int deuda=finalprestamo/12;
+                    NumberFormat formato=NumberFormat.getIntegerInstance();
+                    text.setText("Su deuda total es: $"+formato.format(deuda));
+                    break;
+                case "automotriz":
+                    int finalprestamo2=cuen.getSalarioMatias()+cuen.getAuto();
+                    int deuda2=finalprestamo2/8;
+                    NumberFormat formato2=NumberFormat.getIntegerInstance();
+                    text.setText("Su deuda total es: $"+formato2.format(deuda2));
                     break;
             }
         }
